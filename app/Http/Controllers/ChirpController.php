@@ -10,11 +10,13 @@ class ChirpController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
-        return view('chirps.index');
+        return view('chirps.index', [
+            'chirps' => Chirp::with('user')->latest()->get(),
+        ]);
     }
 
     /**
@@ -31,7 +33,7 @@ class ChirpController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
