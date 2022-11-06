@@ -97,10 +97,14 @@ class ChirpController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Chirp  $chirp
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Chirp $chirp)
     {
-        //
+        $this->authorize('delete', $chirp);
+
+        $chirp->delete();
+
+        return redirect(route('chirps.index'));
     }
 }
