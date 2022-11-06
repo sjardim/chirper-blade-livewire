@@ -24,6 +24,8 @@ class ChirpForm extends Component
             'user_id' => Auth::user()->id,
         ]);
 
+        $this->emit('chirpCreated');
+
         $this->reset('message');
 
     }
