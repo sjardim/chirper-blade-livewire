@@ -35,14 +35,24 @@ class ChirpForm extends Component
 
         $this->chirp->message = $this->message;
 
+        if($this->chirp->isDirty('message')) {
+            session()->flash('updated_message', 'Chirp successfully updated!');
+        }
+
         $this->chirp->save();
-
-        $this->emit('chirpEdited');
-
-        $this->reset('message');
 
         $this->is_editing = false;
 
+        $this->reset('message');
+
+        $this->emit('chirpEdited');
+
+    }
+
+    public function cancel()
+    {
+        $this->is_editing = false;
+        $this->reset('message');
     }
 
     public function save()
