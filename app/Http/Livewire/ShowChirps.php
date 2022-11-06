@@ -7,7 +7,15 @@ use Livewire\Component;
 
 class ShowChirps extends Component
 {
-    protected $listeners = ['chirpCreated' => 'render'];
+    protected $listeners = [
+        'chirpCreated' => 'render',
+        'chirpEdited' => 'render',
+    ];
+
+    public function edit($chirp_id)
+    {
+        $this->emit('editChirp', $chirp_id);
+    }
 
     public function render()
     {
