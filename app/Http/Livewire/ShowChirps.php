@@ -17,6 +17,11 @@ class ShowChirps extends Component
         $this->emit('editChirp', $chirp_id);
     }
 
+    public function delete($chirp_id)
+    {
+        $this->emit('deleteChirp', $chirp_id);
+    }
+
     public function render()
     {
         return view('livewire.show-chirps', [

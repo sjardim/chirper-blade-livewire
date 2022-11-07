@@ -5,6 +5,12 @@
                 {{ session('updated_message') }}
             </div>
         @endif
+
+        @if (session()->has('deleted_message'))
+            <div class="bg-red-100 p-4 mb-4 rounded-md">
+                {{ session('deleted_message') }}
+            </div>
+        @endif
     </div>
 
     @if($is_editing)

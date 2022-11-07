@@ -27,6 +27,11 @@
                                         wire:click="edit({{$chirp->id}})">
                                     Edit
                                 </button>
+
+                                <button class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out"
+                                        wire:click="delete({{$chirp->id}})">
+                                    Delete
+                                </button>
                             </x-slot>
                         </x-dropdown>
                     @endif
