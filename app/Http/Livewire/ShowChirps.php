@@ -7,25 +7,23 @@ use Livewire\Component;
 
 class ShowChirps extends Component
 {
+    public $chirps;
+
     protected $listeners = [
-        'chirpCreated' => 'render',
+        'chirpCreated' => 'mount',
         'chirpEdited' => 'render',
+        'chirpDeleted' => 'mount'
     ];
 
-    public function edit($chirp_id)
+    public function mount()
     {
-        $this->emit('editChirpEvent', $chirp_id);
-    }
-
-    public function delete($chirp_id)
-    {
-        $this->emit('deleteChirpEvent', $chirp_id);
+        $this->chirps = Chirp::with('user')->latest()->get();
     }
 
     public function render()
     {
         return view('livewire.show-chirps', [
-            'chirps' => Chirp::with('user')->latest()->get()
+            'chirps' => $this->chirps
         ]);
     }
 }
