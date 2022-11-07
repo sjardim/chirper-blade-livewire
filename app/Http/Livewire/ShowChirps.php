@@ -14,12 +14,12 @@ class ShowChirps extends Component
 
     public function edit($chirp_id)
     {
-        $this->emit('editChirp', $chirp_id);
+        $this->emit('editChirpEvent', $chirp_id);
     }
 
     public function delete($chirp_id)
     {
-        $this->emit('deleteChirp', $chirp_id);
+        $this->emit('deleteChirpEvent', $chirp_id);
     }
 
     public function render()

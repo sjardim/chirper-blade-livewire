@@ -18,18 +18,18 @@ class ChirpForm extends Component
         'message' => 'required|string|max:255',
     ];
 
-    protected $listeners = ['editChirp', 'deleteChirp'];
+    protected $listeners = ['editChirpEvent', 'deleteChirpEvent'];
 
-    public function deleteChirp($chirp_id)
+    public function deleteChirpEvent($chirp_id)
     {
-        $this->chirp = Chirp::find($chirp_id);
+        Chirp::find($chirp_id)->delete();
 
-        $this->chirp->delete();
+        $this->emit('chirpEdited');
 
         session()->flash('deleted_message', 'Chirp deleted!');
     }
 
-    public function editChirp($chirp_id)
+    public function editChirpEvent($chirp_id)
     {
         $this->chirp = Chirp::find($chirp_id);
 
