@@ -19,7 +19,7 @@ class ChirpForm extends Component
     {
         $this->validate();
 
-        $chirp = Chirp::create([
+        Chirp::create([
             'message' => $this->message,
             'user_id' => Auth::user()->id,
         ]);

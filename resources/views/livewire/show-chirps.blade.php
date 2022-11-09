@@ -2,13 +2,13 @@
 
     <div>
         @if (session()->has('updated_message'))
-            <div class="bg-green-100 p-4 my-4 rounded-md">
+            <div class="bg-green-100 border border-green-200 p-4 my-4 rounded-md">
                 {{ session('updated_message') }}
             </div>
         @endif
 
         @if (session()->has('deleted_message'))
-            <div class="bg-red-100 p-4 my-4 rounded-md">
+            <div class="bg-red-100 border border-red-200 p-4 my-4 rounded-md">
                 {{ session('deleted_message') }}
             </div>
         @endif

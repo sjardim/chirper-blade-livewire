@@ -21,8 +21,6 @@ class ChirpItem extends Component
     {
         Chirp::find($chirp_id)->delete();
 
-        session()->flash('deleted_message', 'Chirp deleted!');
-
         $this->emit('chirpDeleted');
     }
 
@@ -39,10 +37,6 @@ class ChirpItem extends Component
         $this->validate();
 
         $this->chirp->message = $this->message;
-
-        if($this->chirp->isDirty('message')) {
-            session()->flash('updated_message', 'Chirp successfully updated!');
-        }
 
         $this->chirp->save();
 

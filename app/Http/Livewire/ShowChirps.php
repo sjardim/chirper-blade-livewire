@@ -11,9 +11,19 @@ class ShowChirps extends Component
 
     protected $listeners = [
         'chirpCreated' => 'mount',
-        'chirpEdited' => 'render',
-        'chirpDeleted' => 'mount'
+        'chirpDeleted',
+        'chirpEdited',
     ];
+
+    public function chirpEdited()
+    {
+        session()->flash('updated_message', 'Chirp successfully updated!');
+    }
+
+    public function chirpDeleted()
+    {
+        session()->flash('deleted_message', 'Chirp deleted successfully!');
+    }
 
     public function mount()
     {
