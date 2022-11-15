@@ -6,6 +6,11 @@ My suggestion is that you first finish creating the application in Blade followi
 
 Good luck and have fun!
 
+# Quick and dirty demo
+
+https://user-images.githubusercontent.com/125217/201931958-654f81c0-3af9-4496-8c3b-936b2695859b.mp4
+
+
 ## License
 
 [MIT license](https://opensource.org/licenses/MIT).
