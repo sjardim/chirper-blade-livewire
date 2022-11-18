@@ -46,7 +46,7 @@
                 >{{ old('message') }}</textarea>
                 <x-input-error :messages="$errors->get('message')" class="mt-2" />
 
-                <x-primary-button class="mt-4 bg-indigo-500">{{ __('Edit Chirp') }}</x-primary-button>
+                <x-primary-button class="mt-4 bg-indigo-500">{{ __('Update Chirp') }}</x-primary-button>
                 <x-primary-button class="mt-4" type='reset' wire:click="cancel()">{{ __('Cancel') }}</x-primary-button>
             </form>
 
